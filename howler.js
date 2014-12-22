@@ -1291,7 +1291,7 @@
       // fire the loaded event
       if (!obj._loaded) {
         obj._loaded = true;
-        obj.on('load');
+        obj.on('load', buffer);
       }
 
       if (obj._autoplay) {
