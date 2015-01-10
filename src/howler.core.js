@@ -278,6 +278,7 @@
       self._loaded = false;
       self._sounds = [];
       self._endTimers = {};
+      self._buffer = null;
 
       // Setup event listeners.
       self._onend = o.onend ? [{fn: o.onend}] : [];
@@ -1016,7 +1017,14 @@
     },
 
     /**
-     * Unload and destroy the current Howl object.
+     * Get the web audio buffer of this sound.
+     * @returns {null|*|Howl._buffer}
+     */
+    buffer: function() {
+      return this._buffer;
+    },
+
+    /**     * Unload and destroy the current Howl object.
      * This will immediately stop all sound instances attached to this group.
      */
     unload: function() {
@@ -1572,6 +1580,7 @@
 
       // Fire the loaded event.
       if (!self._loaded) {
+        self._buffer = buffer;
         self._loaded = true;
         self._emit('load');
       }
