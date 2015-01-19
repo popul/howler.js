@@ -433,7 +433,7 @@
       }
 
       // Determine how long to play for and where to start playing.
-      var seek = sound._seek > 0 ? sound._seek : self._sprite[sprite][0] / 1000;
+      var seek = sound._seek > 0 ? sound._seek + self._sprite[sprite][0] / 1000 : self._sprite[sprite][0] / 1000;
       var duration = ((self._sprite[sprite][0] + self._sprite[sprite][1]) / 1000) - seek;
 
       // Should this sound loop?
